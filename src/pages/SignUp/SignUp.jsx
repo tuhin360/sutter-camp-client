@@ -35,6 +35,7 @@ const SignUp = () => {
                 placeholder="name"
                 className="input input-bordered"
               />
+            
             </div>
             <div className="form-control">
               <label className="label">
@@ -42,11 +43,12 @@ const SignUp = () => {
               </label>
               <input
                 type="email"
-                {...register("email")}
+                {...register("email", { required: true })}
                 name="email"
                 placeholder="email"
                 className="input input-bordered"
               />
+              {errors.email && <span className="text-red-600">Email is required</span>}
             </div>
             <div className="form-control">
               <label className="label">
@@ -54,10 +56,14 @@ const SignUp = () => {
               </label>
               <input
                 type="password"
-                {...register("password")}
+                {...register("password", { 
+                    required: true,
+                    pattern: /^(?=.*?[A-Z])(?=.*?[!@#$%^&*]).{6,25}$/
+                 })}
                 placeholder="password"
                 className="input input-bordered"
               />
+                {errors.password && <span className="text-red-600">Password is required</span>}
             </div>
             <div className="form-control">
               <label className="label">
@@ -83,7 +89,7 @@ const SignUp = () => {
  
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Login</button>
+              <button className="btn btn-primary">Sign Up</button>
             </div>
           </form>
         </div>
