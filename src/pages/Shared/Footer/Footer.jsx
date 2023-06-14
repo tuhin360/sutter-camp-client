@@ -10,7 +10,7 @@ const Footer = () => {
           <div>
             <img style={{ width: '100px', height: '80px' }} className='rounded-lg' src={logo} alt="" />
             <p>
-            Sutter Camp School
+            Sutter Camp PhotoGraphy
               <br />
               Providing reliable photography taining since 2010
             </p>
@@ -57,7 +57,7 @@ const Footer = () => {
         <div className="footer footer-center p-4 bg-gray-950 text-base-content">
           <div>
             <p className="text-white">
-              Copyright © {currentYear} - All right reserved by Sutter Camp School
+              Copyright © {currentYear} - All right reserved by Sutter Camp Photography Training Institute.
               
             </p>
           </div>
