@@ -1,17 +1,16 @@
-
 import { Link } from "react-router-dom";
-import { FaUserCircle } from 'react-icons/fa';
- 
+import { FaUserCircle } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const Navbar = () => {
-//  const user = true;
+  const { user, logOut } = useContext(AuthContext);
 
-
-//   const handleLogOut = () => {
-//     logOut()
-//       .then(() => {})
-//       .catch((error) => console.log(error));
-//   };
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
 
   const navOptions = (
     <>
@@ -22,19 +21,29 @@ const Navbar = () => {
         <Link to="/menu">Instructors</Link>
       </li>
       <li>
-        <Link to="/order/salad">Classes</Link>
+        <Link to="/">Classes</Link>
       </li>
-   
-        <li>
-          <Link to="/dashboard/adminhome">DashBoard</Link>
-        </li>
-        <li>
-            <Link to="/login">Login</Link>
-        </li>
- 
 
- 
-      
+      <li>
+        <Link to="/dashboard">DashBoard</Link>
+      </li>
+      <li>
+        <Link to="/secret">secret</Link>
+      </li>
+
+      {user ? (
+        <>
+          <button onClick={handleLogOut} className="btn btn-ghost">
+            Logout
+          </button>
+        </>
+      ) : (
+        <>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+        </>
+      )}
     </>
   );
 
@@ -73,12 +82,9 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navOptions}</ul>
         </div>
-     
       </div>
     </>
   );
 };
 
 export default Navbar;
-
-

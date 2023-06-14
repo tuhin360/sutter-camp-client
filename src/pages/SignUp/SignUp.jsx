@@ -112,12 +112,7 @@ const SignUp = () => {
                 />
               </div>
             </form>
-            <p className="text-center pb-4">
-              <small>Already registered?</small>
-              <Link className="font-bold" to="/login">
-                Go to login
-              </Link>
-            </p>
+            <p className="text-center mb-6"><small>Already have an account? <Link className="font-bold" to="/login">Login</Link></small></p>
           </div>
         </div>
       </div>

@@ -1,10 +1,18 @@
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
+import loginImg from '../../../public/images/login.png';
 
 const Login = () => {
-  // const {signIn} = useContext(AuthContext);
+  const {signIn} = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+
+  const from = location.state?.from?.pathname || "/";
+
 
   // login
   const handleLogin = (event) => {
@@ -17,22 +25,22 @@ const Login = () => {
       const user = result.user;
       console.log(user);
     });
-    // signIn(email, password)
-    //   .then((result) => {
-    //     const user = result.user;
-    //     console.log(user);
-    //     Swal.fire({
-    //       title: "User logged in successfully",
-    //       showClass: {
-    //         popup: "animate__animated animate__fadeInDown",
-    //       },
-    //       hideClass: {
-    //         popup: "animate__animated animate__fadeOutUp",
-    //       },
-    //     });
-    //     navigate(from, { replace: true });
-    //   })
-    //   .catch((error) => console.log(error));
+    signIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        Swal.fire({
+          title: "User logged in successfully",
+          showClass: {
+            popup: "animate__animated animate__fadeInDown",
+          },
+          hideClass: {
+            popup: "animate__animated animate__fadeOutUp",
+          },
+        });
+        navigate(from, { replace: true });
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -43,7 +51,8 @@ const Login = () => {
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Please Login!</h1>
+            <h1 className="text-3xl font-bold  ml-4 mb-4 text-blue-600">Please Login!</h1>
+            <img className="rounded-lg ml-4" style={{ width: '300px', height: '200px' }} src={loginImg} alt="" />
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleLogin} className="card-body">
