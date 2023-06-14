@@ -4,14 +4,14 @@ import { FaUserCircle } from 'react-icons/fa';
  
 
 const Navbar = () => {
- const user = true;
+//  const user = true;
 
 
-  const handleLogOut = () => {
-    logOut()
-      .then(() => {})
-      .catch((error) => console.log(error));
-  };
+//   const handleLogOut = () => {
+//     logOut()
+//       .then(() => {})
+//       .catch((error) => console.log(error));
+//   };
 
   const navOptions = (
     <>
@@ -28,23 +28,12 @@ const Navbar = () => {
         <li>
           <Link to="/dashboard/adminhome">DashBoard</Link>
         </li>
- 
-       
-        {user ? (
-        <>
-          {/* <span>{user?.displayName}</span> */}
-          {user &&<FaUserCircle style={{ fontSize: "2.5rem" }} />}
-          <button onClick={handleLogOut} className="btn btn-active btn-ghost">
-            Logout
-          </button>
-        </>
-      ) : (
-        <>
-          <li>
+        <li>
             <Link to="/login">Login</Link>
-          </li>
-        </>
-      )}
+        </li>
+ 
+
+ 
       
     </>
   );
@@ -91,3 +80,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
