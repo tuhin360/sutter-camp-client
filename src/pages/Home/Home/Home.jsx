@@ -1,12 +1,14 @@
-import Navbar from "../../Shared/Navbar/Navbar";
-
+ 
+import { Helmet } from "react-helmet-async";
 const Home = () => {
-    return (
-        <div>
-             <Navbar></Navbar>
-             
-        </div>
-    );
+  return (
+    <div>
+      <Helmet>
+        <title>Sutter Camp | Home</title>
+      </Helmet>
+       <h2>Home</h2>
+    </div>
+  );
 };
 
 export default Home;
