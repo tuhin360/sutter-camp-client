@@ -23,6 +23,9 @@ const Banner = () => {
             Capture the world around you through the lens of a camera and unlock your creativity with the art of photography. <br /> Whether you're drawn to stunning landscapes, expressive portraits, or captivating street scenes, photography  <br /> allows you to freeze moments in time and tell stories through visual imagery.
             </small>
             </p>
+            <button className="btn btn-outline border-b-4 text-white " >
+        Explore More
+        </button>
           </div>
         </div>
         

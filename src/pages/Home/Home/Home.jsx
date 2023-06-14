@@ -2,6 +2,7 @@
 import { Helmet } from "react-helmet-async";
 import Banner from "../Banner/Banner";
 import PopularClass from "../PopularClass/PopularClass";
+import Featured from "../Featured/Featured";
 const Home = () => {
   return (
     <div>
@@ -10,6 +11,7 @@ const Home = () => {
       </Helmet>
        <Banner></Banner>
        <PopularClass></PopularClass>
+       <Featured></Featured>
     </div>
   );
 };

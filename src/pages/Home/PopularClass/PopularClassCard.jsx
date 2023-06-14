@@ -24,10 +24,10 @@ const PopularClassCard = ({ popularClass }) => {
               around you through the lens of a camera and unlock your creativity
               with the art of photography.{" "}
             </p>
-            <Link to={`/book/${_id}`}>
-              <button className="btn btn-sm btn-active btn-neutral mt-3 more-details">
-                More Details
-              </button>
+            <Link to="/details">
+               <button className="btn btn-outline border-b-4 mt-4" >
+               More Details
+        </button>
             </Link>
             <button
               className="items-center text-gray-600 font-bold text-2xl border-2 border-gray

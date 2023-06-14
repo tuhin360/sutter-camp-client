@@ -13,7 +13,7 @@ const PopularClass = () => {
   return (
     <div>
       <div>
-        <h2 className="text-center font-bold text-4xl mt-20 mb-12 text-slate-600">
+        <h2 className="text-center font-bold text-4xl mt-20 mb-8 text-slate-600">
           Popular Class
         </h2>
       </div>
