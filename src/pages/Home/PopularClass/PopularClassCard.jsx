@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
  
 
 const PopularClassCard = ({ popularClass }) => {
-  const { _id, image, className } = popularClass;
+  const { image, className } = popularClass;
 
   return (
     <div>
