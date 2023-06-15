@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
 import loginImg from '../../../public/images/login.png';
+import SocialLogin from "../Shared/SocailLogin/SocialLogin";
 
 const Login = () => {
   const {signIn} = useContext(AuthContext);
@@ -98,6 +99,7 @@ const Login = () => {
                   Create an account?
                 </Link>
               </small>
+              <SocialLogin></SocialLogin>
             </p>
           </div>
         </div>
