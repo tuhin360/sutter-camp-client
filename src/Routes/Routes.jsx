@@ -6,6 +6,7 @@ import SignUp from "../pages/SignUp/SignUp";
 import PrivateRoute from "./PrivateRoute";
 import Secret from "../pages/Shared/Secret/Secret";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
+import Instructors from "../pages/Instructors/Instructors";
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      {
+        path: "instructors",
+        element: <Instructors></Instructors>
+      }
     ],
   },
   {

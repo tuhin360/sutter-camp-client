@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../providers/AuthProvider";
 import signup from '../../../public/images/signup.png';
 import { Link } from "react-router-dom";
+import SocialLogin from "../Shared/SocailLogin/SocialLogin";
 
 const SignUp = () => {
   const {
@@ -113,6 +114,7 @@ const SignUp = () => {
               </div>
             </form>
             <p className="text-center mb-6"><small>Already have an account? <Link className="font-bold" to="/login">Login</Link></small></p>
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>

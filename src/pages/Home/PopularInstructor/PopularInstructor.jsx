@@ -5,12 +5,21 @@ const PopularInstructor = () => {
 
     const [popularInstructors, setPopularInstructors] = useState([]);
 
-  useEffect(() => {
-    fetch("http://localhost:5000/popularInstructor")
-      .then((res) => res.json())
-      .then((data) =>  setPopularInstructors(data));
-  });
+    useEffect(() => {
+      fetch("http://localhost:5000/popularInstructor")
+        .then((res) => res.json())
+        .then((data) => {
+          // Sort the instructors based on the number of students in descending order
+          const sortedInstructors = data.sort(
+            (a, b) => b.numberOfStudents - a.numberOfStudents
+          );
+  
+          // Set the top three instructors to the state
+          setPopularInstructors(sortedInstructors.slice(0, 6));
+        });
+    }, []);
 
+ 
   return (
     <div>
     <div>
