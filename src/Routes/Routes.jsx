@@ -10,6 +10,7 @@ import Instructors from "../pages/Instructors/Instructors";
 import DashBoard from "../Layout/DashBoard";
 import MySelectedClasses from "../pages/DashBoard/MySelectedClasses/MySelectedClasses";
 import MyEnrolledClasses from "../pages/DashBoard/MyEnrolledClasses/MyEnrolledClasses";
+import AllClass from "../pages/AllClass/AllClass";
 
 export const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ export const router = createBrowserRouter([
       {
         path: "instructors",
         element: <Instructors></Instructors>
+      },
+      {
+        path: "allClass",
+        element: <AllClass></AllClass>
       }
     ],
   },
