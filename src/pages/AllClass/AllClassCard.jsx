@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 
@@ -7,6 +7,7 @@ const AllClassCard = ({ allClass }) => {
   const { image, name, instructorName, availableSeats, price } = allClass;
    const {user} = useContext(AuthContext);
    const navigate = useNavigate();
+   const location = useLocation();
 
    const handleSelectClass = allClass => {
     console.log(allClass);
@@ -36,7 +37,7 @@ const AllClassCard = ({ allClass }) => {
         confirmButtonText: 'Login now!'
       }).then((result) => {
         if (result.isConfirmed) {
-          navigate('/login')
+          navigate('/login', {state:{from: location}})
         }
       })
     }
