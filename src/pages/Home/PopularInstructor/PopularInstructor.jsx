@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import PopularInstructorCard from "./PopularInstructorCard";
+import { Zoom} from "react-awesome-reveal";
 
 const PopularInstructor = () => {
 
@@ -22,12 +23,14 @@ const PopularInstructor = () => {
  
   return (
     <div>
-    <div>
+   <Zoom>
+   <div>
       <h2 className="text-center font-bold text-4xl mt-20 mb-8 text-slate-600 ">
         Our Popular Instructor
       </h2>
       <p className="text-center mb-8">Discover how to capture authentic moments and tell stories of everyday life in urban environments. </p>
     </div>
+   </Zoom>
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {popularInstructors.map((popularInstructor) => (
           <PopularInstructorCard

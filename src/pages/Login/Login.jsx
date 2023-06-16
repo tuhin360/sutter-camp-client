@@ -5,6 +5,8 @@ import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
 import loginImg from '../../../public/images/login.png';
 import SocialLogin from "../Shared/SocailLogin/SocialLogin";
+import { Slide, Zoom} from "react-awesome-reveal";
+ 
 
 const Login = () => {
   const {signIn} = useContext(AuthContext);
@@ -49,13 +51,18 @@ const Login = () => {
       <Helmet>
         <title>Sutter Camp | Login</title>
       </Helmet>
-      <div className="hero min-h-screen bg-base-200">
+      <div className="hero min-h-screen ">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
+            <Slide>
             <h1 className="text-3xl font-bold  ml-4 mb-4 text-blue-600">Please Login!</h1>
+            </Slide>
+            <Slide>
             <img className="rounded-lg ml-4" style={{ width: '300px', height: '200px' }} src={loginImg} alt="" />
+            </Slide>
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+            <Zoom>
             <form onSubmit={handleLogin} className="card-body">
               <div className="form-control">
                 <label className="label">
@@ -84,22 +91,29 @@ const Login = () => {
                 </a>
               </label> */}
               </div>
-              <div className="form-control mt-6">
+             <Zoom>
+             <div className="form-control mt-6">
                 <input
                   className="btn btn-primary"
                   type="submit"
                   value="Login"
                 />
               </div>
+             </Zoom>
             </form>
+            </Zoom>
             <p className="text-center mb-6">
+              <Zoom>
               <small>
                 New Here?{" "}
                 <Link className=" font-bold" to="/signup">
                   Create an account?
                 </Link>
               </small>
+              </Zoom>
+              <Zoom>
               <SocialLogin></SocialLogin>
+              </Zoom>
             </p>
           </div>
         </div>

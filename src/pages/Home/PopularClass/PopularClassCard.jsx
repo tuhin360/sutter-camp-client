@@ -1,6 +1,5 @@
 import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
- 
 
 const PopularClassCard = ({ popularClass }) => {
   const { image, className } = popularClass;
@@ -16,6 +15,7 @@ const PopularClassCard = ({ popularClass }) => {
         </figure>
         <div data-aos="zoom-in" className="card-body">
           <h2 className="card-title text-2xl font-bold">{className}</h2>
+
           <div className="card-actions flex justify-between ">
             <p className="text-justify ">
               Explore the beauty of nature and learn how to capture breathtaking
@@ -25,9 +25,9 @@ const PopularClassCard = ({ popularClass }) => {
               with the art of photography.{" "}
             </p>
             <Link to="/details">
-               <button className="btn btn-outline border-b-4 mt-4" >
-               More Details
-        </button>
+              <button className="btn btn-outline border-b-4 mt-4">
+                More Details
+              </button>
             </Link>
             <button
               className="items-center text-gray-600 font-bold text-2xl border-2 border-gray

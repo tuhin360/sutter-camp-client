@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import PopularClassCard from "./PopularClassCard";
+import { Zoom} from "react-awesome-reveal";
 
 const PopularClass = () => {
   const [popularClasses, setPopularClass] = useState([]);
@@ -13,7 +14,8 @@ const PopularClass = () => {
   return (
     <div>
       <div>
-        <h2 className="text-center font-bold text-4xl mt-20 mb-8 text-slate-600">
+      <Zoom>
+      <h2 className="text-center font-bold text-4xl mt-20 mb-8 text-slate-600">
           Popular Class
         </h2>
         <p className="text-center mb-8">
@@ -21,6 +23,8 @@ const PopularClass = () => {
           Explore the beauty of the night sky and cityscapes in this class
           dedicated to night photography.
         </p>
+      </Zoom>
+        
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {popularClasses.map((popularClass) => (

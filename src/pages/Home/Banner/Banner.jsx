@@ -1,5 +1,6 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
+import { Zoom} from "react-awesome-reveal";
 
 import banner1 from "../../../assets/Home/Banner/1.jpg";
 import banner2 from "../../../assets/Home/Banner/2.jpg";
@@ -14,18 +15,24 @@ const Banner = () => {
         <img src={banner1} />
         <div className="absolute rounded-lg flex items-center h-full top-0 left-0 transform bg-gradient-to-r from-[#1f2930] to-[rgba(21, 21, 21, 0)]">
           <div className="text-white font-bold space-y-7 w-full pl-28 ">
+            <Zoom  duration={2000}>
             <h2 className="text-4xl ">
               "Discover Your Inner Photographer: Join Our Photographic
               Exploration"
             </h2>
-            <p>
+            </Zoom>
+           <Zoom duration={2000}>
+           <p>
             <small>
             Capture the world around you through the lens of a camera and unlock your creativity with the art of photography. <br /> Whether you're drawn to stunning landscapes, expressive portraits, or captivating street scenes, photography  <br /> allows you to freeze moments in time and tell stories through visual imagery.
             </small>
             </p>
-            <button className="btn btn-outline border-b-4 text-white " >
+           </Zoom>
+           <Zoom>
+           <button className="btn btn-outline border-b-4 text-white " >
         Explore More
         </button>
+           </Zoom>
           </div>
         </div>
         

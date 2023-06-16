@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { FaWallet, FaCalendarAlt, FaHome} from "react-icons/fa";
+import {FaHome, FaNotesMedical, FaRegStickyNote} from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
  
 
@@ -24,12 +24,12 @@ const Dashboard = () => {
         <ul className="menu p-4 w-80">
           <li>
             <NavLink to="/dashboard/mySelectedClasses">
-              <FaCalendarAlt></FaCalendarAlt> My Selected Class
+            <FaNotesMedical></FaNotesMedical> My Selected Class
             </NavLink>
           </li>
           <li>
             <NavLink  to="/dashboard/myEnrolledClasses">
-              <FaWallet></FaWallet> My Enrolled Class
+              <FaRegStickyNote></FaRegStickyNote> My Enrolled Class
             </NavLink>
           </li>
           <div className="divider"></div>
