@@ -1,14 +1,72 @@
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
+import useSelectCard from "../../../hooks/useSelectCard";
+import { FaTrashAlt } from "react-icons/fa";
 
 const MySelectedClasses = () => {
+    const [courseCart] = useSelectCard();
+    console.log(courseCart);
+    const total = courseCart.reduce((sum, item) => item.price + sum, 0).toFixed(2);
+
+     
+
   return (
     <div>
       <Helmet>
         <title>Sutter Camp | My Selected Classes</title>
       </Helmet>
-      <h3>My selected Classes</h3>
+      <div className="uppercase font-bold my-20 h-[60px]">
+        <h3 className="text-3xl">Total Items:  { courseCart?.length || 0} </h3>  
+        <h3 className="text-3xl my-8">Total Price: ${total} </h3>
+        <Link to="/dashboard/payment">
+          <button className="btn btn-warning btn-sm mb-20">Pay</button>
+        </Link>
+      </div>
+      <div className="overflow-x-auto w-full">
+        <table className="table w-full  mt-10">
+          {/* head */}
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Instructor</th>
+              <th>Course Name</th>
+              <th>Price</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {courseCart.map((item, index) => (
+              <tr key={item._id} item={item}>
+                <td>{index + 1}</td>
+                <td>
+                  <div className="avatar">
+                    <div className="mask mask-squircle w-12 h-12">
+                      <img src={item.image} />
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  {item.name}
+                  <br />
+                </td>
+                <td className="text-end">{item.price}</td>
+                <td>
+                  <button
+                     
+                    className="btn btn-ghost bg-red-600 text-white "
+                  >
+                    <FaTrashAlt></FaTrashAlt>
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
 
 export default MySelectedClasses;
+
+// () => handleDelete(item)

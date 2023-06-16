@@ -2,24 +2,34 @@ import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import useSelectCard from "../../hooks/useSelectCard";
 
 const AllClassCard = ({ allClass }) => {
-  const { image, name, instructorName, availableSeats, price } = allClass;
+  const { image, name, instructorName, availableSeats, price, _id} = allClass;
    const {user} = useContext(AuthContext);
+   const [, refetch] = useSelectCard();
    const navigate = useNavigate();
    const location = useLocation();
 
    const handleSelectClass = allClass => {
     console.log(allClass);
-    if(user){
-      fetch('http://localhost:5000/selectClasses')
+    if(user && user.email){
+      const  selectClass = {classId: _id, name, image, price, email: user.email}
+      fetch('http://localhost:5000/selectClasses',{
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify(selectClass)
+      })
       .then(res => res.json())
       .then(data => {
         if(data.insertedId){
+          refetch();
           Swal.fire({
             position: 'top-end',
             icon: 'success',
-            title: 'Your work has been saved',
+            title: 'Successfully selected this class',
             showConfirmButton: false,
             timer: 1500
           })
@@ -57,7 +67,7 @@ const AllClassCard = ({ allClass }) => {
           <div className="card-actions flex justify-between ">
             <p className="text-justify ">
               <h4>
-                <b>Couse Name:</b> {name}
+                <b>Class Name:</b> {name}
               </h4>
               <p>
                 <b>Instructor Name:</b> {instructorName}
