@@ -11,6 +11,8 @@ import DashBoard from "../Layout/DashBoard";
 import MySelectedClasses from "../pages/DashBoard/MySelectedClasses/MySelectedClasses";
 import MyEnrolledClasses from "../pages/DashBoard/MyEnrolledClasses/MyEnrolledClasses";
 import AllClass from "../pages/AllClass/AllClass";
+import AllUser from "../pages/DashBoard/AllUser/AllUser";
+ 
 
 export const router = createBrowserRouter([
   {
@@ -62,6 +64,10 @@ export const router = createBrowserRouter([
       {
         path: 'myEnrolledClasses',
         element: <MyEnrolledClasses></MyEnrolledClasses>
+      },
+      {
+        path: 'allUser',
+        element: <AllUser></AllUser>
       }
      
     ]
