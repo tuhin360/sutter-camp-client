@@ -7,6 +7,9 @@ import PrivateRoute from "./PrivateRoute";
 import Secret from "../pages/Shared/Secret/Secret";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import Instructors from "../pages/Instructors/Instructors";
+import DashBoard from "../Layout/DashBoard";
+import MySelectedClasses from "../pages/DashBoard/MySelectedClasses/MySelectedClasses";
+import MyEnrolledClasses from "../pages/DashBoard/MyEnrolledClasses/MyEnrolledClasses";
 
 export const router = createBrowserRouter([
   {
@@ -42,5 +45,20 @@ export const router = createBrowserRouter([
   {
     path: "/*",
     element: <NotFoundPage></NotFoundPage>,
+  },
+  {
+    path: 'dashboard',
+    element: <DashBoard></DashBoard>,
+    children: [
+      {
+        path: 'mySelectedClasses',
+        element: <MySelectedClasses></MySelectedClasses>
+      },
+      {
+        path: 'myEnrolledClasses',
+        element: <MyEnrolledClasses></MyEnrolledClasses>
+      }
+     
+    ]
   },
 ]);

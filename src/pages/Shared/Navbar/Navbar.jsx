@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { FaUserCircle } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 
@@ -25,7 +24,7 @@ const Navbar = () => {
       </li>
 
       <li>
-        <Link to="/dashboard">DashBoard</Link>
+        <Link to="/dashboard/mySelectedClasses">DashBoard</Link>
       </li>
       <li>
         <Link to="/secret">secret</Link>
