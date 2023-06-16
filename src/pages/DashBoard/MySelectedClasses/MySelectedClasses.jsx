@@ -2,11 +2,41 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import useSelectCard from "../../../hooks/useSelectCard";
 import { FaTrashAlt } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const MySelectedClasses = () => {
-    const [courseCart] = useSelectCard();
+    const [courseCart, refetch] = useSelectCard();
     console.log(courseCart);
     const total = courseCart.reduce((sum, item) => item.price + sum, 0).toFixed(2);
+
+ const handleDelete = (item) => {
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      fetch(`http://localhost:5000/selectClasses/${item._id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deleteCount > 0) {
+            refetch();
+            Swal.fire(
+                "Deleted!", 
+                "Your file has been deleted.", 
+                "success");
+          }
+        });
+    }
+  });
+};
+
 
      
 
@@ -29,7 +59,8 @@ const MySelectedClasses = () => {
             <tr>
               <th>#</th>
               <th>Instructor</th>
-              <th>Course Name</th>
+              <th>Instructor Name</th>
+              <th>Class</th>
               <th>Price</th>
               <th>Action</th>
             </tr>
@@ -42,8 +73,12 @@ const MySelectedClasses = () => {
                   <div className="avatar">
                     <div className="mask mask-squircle w-12 h-12">
                       <img src={item.image} />
+                      
                     </div>
                   </div>
+                </td>
+                <td>
+                {item.instructorName}
                 </td>
                 <td>
                   {item.name}
@@ -51,7 +86,7 @@ const MySelectedClasses = () => {
                 </td>
                 <td className="text-end">{item.price}</td>
                 <td>
-                  <button
+                  <button   onClick={() => handleDelete(item)}
                      
                     className="btn btn-ghost bg-red-600 text-white "
                   >
@@ -69,4 +104,3 @@ const MySelectedClasses = () => {
 
 export default MySelectedClasses;
 
-// () => handleDelete(item)

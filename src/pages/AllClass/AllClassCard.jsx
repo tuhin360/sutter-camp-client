@@ -14,7 +14,7 @@ const AllClassCard = ({ allClass }) => {
    const handleSelectClass = allClass => {
     console.log(allClass);
     if(user && user.email){
-      const  selectClass = {classId: _id, name, image, price, email: user.email}
+      const  selectClass = {classId: _id, instructorName, name, image, price, email: user.email}
       fetch('http://localhost:5000/selectClasses',{
         method: 'POST',
         headers: {
