@@ -1,7 +1,47 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const AllClassCard = ({ allClass }) => {
   const { image, name, instructorName, availableSeats, price } = allClass;
+   const {user} = useContext(AuthContext);
+   const navigate = useNavigate();
+
+   const handleSelectClass = allClass => {
+    console.log(allClass);
+    if(user){
+      fetch('http://localhost:5000/selectClasses')
+      .then(res => res.json())
+      .then(data => {
+        if(data.insertedId){
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        }
+      })
+    }
+    else{
+      Swal.fire({
+        title: 'Please login to select the course',
+       
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Login now!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate('/login')
+        }
+      })
+    }
+   }
+
   return (
     <div>
       <div
@@ -30,7 +70,7 @@ const AllClassCard = ({ allClass }) => {
             </p>
             <div>
               <Link to="">
-                <button className="btn btn-outline border-b-4 mt-4">
+                <button onClick={() => handleSelectClass(allClass)} className="btn btn-outline border-b-4 mt-4">
                   Select
                 </button>
               </Link>
