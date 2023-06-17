@@ -15,7 +15,7 @@ const AllClassCard = ({ allClass }) => {
     console.log(allClass);
     if(user && user.email){
       const  selectClass = {classId: _id, instructorName, name, image, price, email: user.email}
-      fetch('http://localhost:5000/selectClasses',{
+      fetch('https://sutter-camp-server.vercel.app/selectClasses',{
         method: 'POST',
         headers: {
           'content-type': 'application/json',

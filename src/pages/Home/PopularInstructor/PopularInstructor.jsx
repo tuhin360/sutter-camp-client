@@ -7,7 +7,7 @@ const PopularInstructor = () => {
     const [popularInstructors, setPopularInstructors] = useState([]);
 
     useEffect(() => {
-      fetch("http://localhost:5000/popularInstructor")
+      fetch("https://sutter-camp-server.vercel.app/popularInstructor")
         .then((res) => res.json())
         .then((data) => {
           // Sort the instructors based on the number of students in descending order
