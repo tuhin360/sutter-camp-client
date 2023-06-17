@@ -1,0 +1,10 @@
+- Registration and Login System
+- Create interface for  Student, Admin, Instructor 
+- 404 page added
+  - Used animation for great user experience
+  - Used fire base for authentication
+  - Used React for front-end design and express for backend
+  - Mongo DB used for storing data
+  - Responsive Webpage for mobile/Desktop
+  - Also use tanstack query, axios for easy data fetch and secure route
+  - Live Site: 
