@@ -1,6 +1,8 @@
 import { NavLink, Outlet } from "react-router-dom";
 import {
+  FaBookReader,
   FaChalkboardTeacher,
+  FaGraduationCap,
   FaHome,
   FaNotesMedical,
   FaRegStickyNote,
@@ -8,15 +10,12 @@ import {
 } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
 import useAdmin from "../hooks/useAdmin";
-// import useInstructor from "../hooks/useInstructor";
+import useInstructor from "../hooks/useInstructor";
 
 const Dashboard = () => {
-  // TODO: load data from the server to have dynamic isAdmin base on Data
-  // const isAdmin = true;
-  // const [isInstructor] = useInstructor();
-  const isInstructor = false;
-
-
+ 
+  const [isInstructor] = useInstructor();
+  
   const [isAdmin] = useAdmin();
 
   return (
@@ -34,9 +33,9 @@ const Dashboard = () => {
           Open drawer
         </label>
       </div>
-      <div className="drawer-side bg-[#8e9490]">
+      <div className="drawer-side bg-[#9fbaa8]">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-80">
+        <ul className="menu p-4 w-80 font-bold">
           {isAdmin ? (
             <>
               <li>
@@ -55,12 +54,22 @@ const Dashboard = () => {
                   <FaHome></FaHome> Home
                 </NavLink>{" "}
               </li>
+              <li>
+                <NavLink to="/instructors">
+                  <FaGraduationCap></FaGraduationCap> Instructors
+                </NavLink>{" "}
+              </li>
+              <li>
+                <NavLink to="/allClass">
+                  <FaBookReader></FaBookReader> Classes
+                </NavLink>{" "}
+              </li>
             </>
-          )  : isInstructor ? (
+          ) : isInstructor ? (
             <>
               <li>
                 <NavLink to="/dashboard/addItem">
-                  <FaChalkboardTeacher></FaChalkboardTeacher>  Add Class
+                  <FaChalkboardTeacher></FaChalkboardTeacher> Add Class
                 </NavLink>
               </li>
               <li>
@@ -74,8 +83,18 @@ const Dashboard = () => {
                   <FaHome></FaHome> Home
                 </NavLink>{" "}
               </li>
+              <li>
+                <NavLink to="/instructors">
+                  <FaGraduationCap></FaGraduationCap> Instructors
+                </NavLink>{" "}
+              </li>
+              <li>
+                <NavLink to="/allClass">
+                  <FaBookReader></FaBookReader> Classes
+                </NavLink>{" "}
+              </li>
             </>
-          )  : (
+          ) : (
             <>
               <li>
                 <NavLink to="/dashboard/mySelectedClasses">
@@ -93,10 +112,18 @@ const Dashboard = () => {
                   <FaHome></FaHome> Home
                 </NavLink>{" "}
               </li>
+              <li>
+                <NavLink to="/instructors">
+                  <FaGraduationCap></FaGraduationCap> Instructors
+                </NavLink>{" "}
+              </li>
+              <li>
+                <NavLink to="/allClass">
+                  <FaBookReader></FaBookReader> Classes
+                </NavLink>{" "}
+              </li>
             </>
           )}
-
-
         </ul>
       </div>
     </div>
@@ -104,6 +131,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
-
-     

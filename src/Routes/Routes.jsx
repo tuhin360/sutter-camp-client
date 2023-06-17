@@ -11,7 +11,7 @@ import MySelectedClasses from "../pages/DashBoard/MySelectedClasses/MySelectedCl
 import MyEnrolledClasses from "../pages/DashBoard/MyEnrolledClasses/MyEnrolledClasses";
 import AllClass from "../pages/AllClass/AllClass";
 import AllUser from "../pages/DashBoard/AllUser/AllUser";
-// import AddItem from "../pages/DashBoard/AddItem/AddItem";
+import AddItem from "../pages/DashBoard/AddItem/AddItem";
  
 import AdminRoute from "./AdminRoute";
 import Payment from "../pages/DashBoard/Payment/Payment";
@@ -68,12 +68,12 @@ export const router = createBrowserRouter([
       {
         path: 'allUser',
         element: <AdminRoute> <AllUser></AllUser></AdminRoute>
+      },
+      //instructor routes
+      {
+        path: 'addItem',
+        element:   <AddItem></AddItem> 
       }
-      // instructor routes
-      // {
-      //   path: 'addItem',
-      //   element:   <AddItem></AddItem> 
-      // }
     ]
   },
 ]);
