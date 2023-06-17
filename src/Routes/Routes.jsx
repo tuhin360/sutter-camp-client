@@ -4,7 +4,6 @@ import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
 import PrivateRoute from "./PrivateRoute";
-import Secret from "../pages/Shared/Secret/Secret";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import Instructors from "../pages/Instructors/Instructors";
 import DashBoard from "../Layout/DashBoard";
@@ -12,6 +11,10 @@ import MySelectedClasses from "../pages/DashBoard/MySelectedClasses/MySelectedCl
 import MyEnrolledClasses from "../pages/DashBoard/MyEnrolledClasses/MyEnrolledClasses";
 import AllClass from "../pages/AllClass/AllClass";
 import AllUser from "../pages/DashBoard/AllUser/AllUser";
+// import AddItem from "../pages/DashBoard/AddItem/AddItem";
+ 
+import AdminRoute from "./AdminRoute";
+import Payment from "../pages/DashBoard/Payment/Payment";
  
 
 export const router = createBrowserRouter([
@@ -30,14 +33,6 @@ export const router = createBrowserRouter([
       {
         path: "signup",
         element: <SignUp></SignUp>,
-      },
-      {
-        path: "secret",
-        element: (
-          <PrivateRoute>
-            <Secret></Secret>
-          </PrivateRoute>
-        ),
       },
       {
         path: "instructors",
@@ -65,12 +60,20 @@ export const router = createBrowserRouter([
         path: 'myEnrolledClasses',
         element: <MyEnrolledClasses></MyEnrolledClasses>
       },
+      {
+        path: 'payment',
+        element: <Payment></Payment>
+      },
       // admin routes
       {
         path: 'allUser',
-        element: <AllUser></AllUser>
+        element: <AdminRoute> <AllUser></AllUser></AdminRoute>
       }
-     
+      // instructor routes
+      // {
+      //   path: 'addItem',
+      //   element:   <AddItem></AddItem> 
+      // }
     ]
   },
 ]);

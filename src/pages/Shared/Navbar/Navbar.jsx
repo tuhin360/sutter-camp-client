@@ -26,9 +26,6 @@ const Navbar = () => {
       <li>
         <Link to="/dashboard/mySelectedClasses">DashBoard</Link>
       </li>
-      <li>
-        <Link to="/secret">secret</Link>
-      </li>
 
       {user ? (
         <>

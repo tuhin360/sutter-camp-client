@@ -8,11 +8,14 @@ import {
 } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
 import useAdmin from "../hooks/useAdmin";
+// import useInstructor from "../hooks/useInstructor";
 
 const Dashboard = () => {
   // TODO: load data from the server to have dynamic isAdmin base on Data
   // const isAdmin = true;
-  // const isInstructor = true;
+  // const [isInstructor] = useInstructor();
+  const isInstructor = false;
+
 
   const [isAdmin] = useAdmin();
 
@@ -53,7 +56,26 @@ const Dashboard = () => {
                 </NavLink>{" "}
               </li>
             </>
-          ) : (
+          )  : isInstructor ? (
+            <>
+              <li>
+                <NavLink to="/dashboard/addItem">
+                  <FaChalkboardTeacher></FaChalkboardTeacher>  Add Class
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to=" ">
+                  <FaUsers></FaUsers> My Class
+                </NavLink>
+              </li>
+              <div className="divider"></div>
+              <li>
+                <NavLink to="/">
+                  <FaHome></FaHome> Home
+                </NavLink>{" "}
+              </li>
+            </>
+          )  : (
             <>
               <li>
                 <NavLink to="/dashboard/mySelectedClasses">
@@ -74,45 +96,7 @@ const Dashboard = () => {
             </>
           )}
 
-          {/* {isInstructor ? (
-            <>
-              <li>
-                <NavLink to="/dashboard/manage">
-                  <FaChalkboardTeacher></FaChalkboardTeacher>  Add Class
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/allUser">
-                  <FaUsers></FaUsers> My Class
-                </NavLink>
-              </li>
-              <div className="divider"></div>
-              <li>
-                <NavLink to="/">
-                  <FaHome></FaHome> Home
-                </NavLink>{" "}
-              </li>
-            </>
-          ) : (
-            <>
-              <li>
-                <NavLink to="/dashboard/mySelectedClasses">
-                  <FaNotesMedical></FaNotesMedical> My Selected Class
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/myEnrolledClasses">
-                  <FaRegStickyNote></FaRegStickyNote> My Enrolled Class
-                </NavLink>
-              </li>
-              <div className="divider"></div>
-              <li>
-                <NavLink to="/">
-                  <FaHome></FaHome> Home
-                </NavLink>{" "}
-              </li>
-            </>
-          )} */}
+
         </ul>
       </div>
     </div>
@@ -120,3 +104,6 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
+
+     

@@ -73,7 +73,6 @@ const MySelectedClasses = () => {
                   <div className="avatar">
                     <div className="mask mask-squircle w-12 h-12">
                       <img src={item.image} />
-                      
                     </div>
                   </div>
                 </td>
