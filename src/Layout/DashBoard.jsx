@@ -1,10 +1,20 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { FaChalkboardTeacher, FaHome, FaNotesMedical, FaRegStickyNote, FaUsers } from "react-icons/fa";
+import {
+  FaChalkboardTeacher,
+  FaHome,
+  FaNotesMedical,
+  FaRegStickyNote,
+  FaUsers,
+} from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
+import useAdmin from "../hooks/useAdmin";
 
 const Dashboard = () => {
   // TODO: load data from the server to have dynamic isAdmin base on Data
-  const isAdmin = true;
+  // const isAdmin = true;
+  // const isInstructor = true;
+
+  const [isAdmin] = useAdmin();
 
   return (
     <div className="drawer lg:drawer-open  ">
@@ -63,6 +73,46 @@ const Dashboard = () => {
               </li>
             </>
           )}
+
+          {/* {isInstructor ? (
+            <>
+              <li>
+                <NavLink to="/dashboard/manage">
+                  <FaChalkboardTeacher></FaChalkboardTeacher>  Add Class
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/allUser">
+                  <FaUsers></FaUsers> My Class
+                </NavLink>
+              </li>
+              <div className="divider"></div>
+              <li>
+                <NavLink to="/">
+                  <FaHome></FaHome> Home
+                </NavLink>{" "}
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <NavLink to="/dashboard/mySelectedClasses">
+                  <FaNotesMedical></FaNotesMedical> My Selected Class
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/myEnrolledClasses">
+                  <FaRegStickyNote></FaRegStickyNote> My Enrolled Class
+                </NavLink>
+              </li>
+              <div className="divider"></div>
+              <li>
+                <NavLink to="/">
+                  <FaHome></FaHome> Home
+                </NavLink>{" "}
+              </li>
+            </>
+          )} */}
         </ul>
       </div>
     </div>

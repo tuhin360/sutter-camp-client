@@ -65,6 +65,7 @@ export const router = createBrowserRouter([
         path: 'myEnrolledClasses',
         element: <MyEnrolledClasses></MyEnrolledClasses>
       },
+      // admin routes
       {
         path: 'allUser',
         element: <AllUser></AllUser>
